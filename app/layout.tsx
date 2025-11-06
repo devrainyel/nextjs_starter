@@ -36,11 +36,11 @@ export default function RootLayout({
             timeScale={0.5}
             height={2}
             baseWidth={3}
-            scale={3}
+            scale={5}
             hueShift={0}
             colorFrequency={1}
-            noise={0.5}
-            glow={0.2}
+            noise={0.3}
+            glow={0.5}
           />
         </div>
         <main>{children}</main>
