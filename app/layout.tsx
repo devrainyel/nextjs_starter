@@ -3,6 +3,7 @@ import { Public_Sans, Inter } from 'next/font/google';
 import Navbar from './components/Navbar';
 import './globals.css';
 import Prism from './components/Prism';
+import { PostHogProvider } from './components/PostHogProvider';
 
 const publicSans = Public_Sans({
   variable: '--font-public-sans',
@@ -29,21 +30,23 @@ export default function RootLayout({
       <body
         className={`${publicSans.variable} ${inter.variable} min-h-screen antialiased`}
       >
-        <Navbar />
-        <div className='absolute inset-0 top-0 z-[-1] min-h-screen'>
-          <Prism
-            animationType='rotate'
-            timeScale={0.5}
-            height={2}
-            baseWidth={3}
-            scale={5}
-            hueShift={0}
-            colorFrequency={1}
-            noise={0.3}
-            glow={0.5}
-          />
-        </div>
-        <main>{children}</main>
+        <PostHogProvider>
+          <Navbar />
+          <div className='absolute inset-0 top-0 z-[-1] min-h-screen'>
+            <Prism
+              animationType='rotate'
+              timeScale={0.5}
+              height={2}
+              baseWidth={3}
+              scale={5}
+              hueShift={0}
+              colorFrequency={1}
+              noise={0.3}
+              glow={0.5}
+            />
+          </div>
+          <main>{children}</main>
+        </PostHogProvider>
       </body>
     </html>
   );
